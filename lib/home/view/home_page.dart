@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:brn_mobile/authentication/authentication.dart';
+import 'package:brn_mobile/Bloc/authentication.dart';
 
 class HomePage extends StatelessWidget {
   static Route route() {
@@ -9,26 +9,20 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userId =
+        "ghg-gkglk-jyhuy BlocProvider.of<LoginBloc>(context,listen: false).add(const LoginSubmitted());";
+        // BlocProvider.of<AuthenticationBloc>(context).state.user.id;
     return Scaffold(
       appBar: AppBar(title: const Text('Home')),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Builder(
-              builder: (context) {
-                final userId = context.select(
-                  (AuthenticationBloc bloc) => bloc.state.user.id,
-                );
-                return Text('UserID: $userId');
-              },
-            ),
+            Text('UserID: $userId'),
             RaisedButton(
               child: const Text('Logout'),
               onPressed: () {
-                context
-                    .read<AuthenticationBloc>()
-                    .add(AuthenticationLogoutRequested());
+                BlocProvider.of<AuthenticationBloc>(context).add(AuthenticationLogoutRequested());
               },
             ),
           ],

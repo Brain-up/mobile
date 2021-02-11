@@ -1,12 +1,78 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:brn_mobile/Routes/routes.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
+import 'widget1.dart';
+import 'widget2.dart';
+import 'widget3.dart';
 
-class FirstPageWidget extends StatefulWidget {
+class FirstPage extends StatelessWidget {
+  static Route route() {
+    return MaterialPageRoute<void>(builder: (_) => FirstPage());
+  }
+
   @override
-  _FirstPageWidgetState createState() => _FirstPageWidgetState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Welcome to BrainUp')),
+      body: Container(child: Builder(builder: (context) {
+        final double height = MediaQuery.of(context).size.height;
+        final double width = MediaQuery.of(context).size.width;
+        return CarouselSlider(
+          options: CarouselOptions(
+            height: height,
+            // initialPage: 1,
+            enableInfiniteScroll: false,
+            viewportFraction: 1.0,
+            enlargeCenterPage: true,
+            //  pageSnapping: true,
+          ),
+          items: <Widget>[
+            Expanded(
+              child: SingleChildScrollView(
+                // scrollDirection: Axis.vertical,
+                scrollDirection: Axis.vertical,
+                // shrinkWrap: true,
+
+                child: Column(children: <Widget>[
+                  SizedBox(
+                    height: height,
+                    width: width,
+                    child: new _FirstPageWidget(),
+                  ),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(minHeight: height, maxWidth: width),
+                    child: new GroupAboutWOCamonWidgetSTTLes(),
+                  )
+                ]),
+              ),
+            ),
+            Flexible(
+              fit: FlexFit.loose,
+              child: _FirstPageWidget(),
+            ),
+            SizedBox(
+              height: height,
+              width: width,
+              child: Flexible(
+                fit: FlexFit.loose,
+                child: GroupAboutWOCamonWidgetSTTLes(),
+              ),
+            ),
+            GroupAboutWOCamonWidgetSTTLes(),
+            Flexible(fit: FlexFit.loose, child: Group1scrWidgetSTL()),
+            GroupSc1WidgetSTF(),
+          ],
+        );
+      })),
+    );
+  }
 }
 
-class _FirstPageWidgetState extends State<FirstPageWidget> {
+class _FirstPageWidget extends StatelessWidget {
+  final CarouselController _controller = CarouselController();
+
   @override
   Widget build(BuildContext context) {
     // Figma Flutter Generator Group578Widget - GROUP
@@ -25,8 +91,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget> {
                     color: Color.fromRGBO(0, 0, 0, 1),
                     fontFamily: 'Open Sans',
                     fontSize: 16,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
+                    letterSpacing: 0 /*percentages not used in flutter. defaulting to zero*/,
                     fontWeight: FontWeight.normal,
                     height: 1),
               )),
@@ -60,8 +125,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget> {
                                         maxLines: 3,
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
-                                            color:
-                                                Color.fromRGBO(19, 18, 17, 1),
+                                            color: Color.fromRGBO(19, 18, 17, 1),
                                             fontFamily: 'Open Sans',
                                             fontSize: 18,
                                             letterSpacing:
@@ -93,18 +157,24 @@ class _FirstPageWidgetState extends State<FirstPageWidget> {
                                 child: SizedBox(
                                     width: 338,
                                     height: 48,
-                                    child: Text(
-                                      'Начать',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color.fromRGBO(0, 0, 0, 1),
-                                          backgroundColor: Colors.red,
-                                          fontFamily: 'Montserrat',
-                                          fontSize: 18,
-                                          letterSpacing:
-                                              0 /*percentages not used in flutter. defaulting to zero*/,
-                                          fontWeight: FontWeight.normal,
-                                          height: 1),
+                                    child: RaisedButton(
+                                      color: Colors.red,
+                                      textColor: Color.fromRGBO(0, 0, 0, 1),
+
+                                      onPressed: () => {
+                                        Navigator.pushNamed(context, RoutingConstants.loginScreen)
+                                      },
+                                      // style: TextStyle(
+                                      //     color: Color.fromRGBO(0, 0, 0, 1),
+                                      //     backgroundColor: Colors.red,
+                                      //     fontFamily: 'Montserrat',
+                                      //     fontSize: 18,
+                                      //     letterSpacing:
+                                      //     0 /*percentages not used in flutter. defaulting to zero*/,
+                                      //     fontWeight: FontWeight.normal,
+                                      //     height: 1
+                                      // ) ,
+                                      child: Text('Начать'),
                                     )),
                               )
                             ]))),
@@ -117,8 +187,7 @@ class _FirstPageWidgetState extends State<FirstPageWidget> {
                   height: 406,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(
-                            'assets/images/Coolkidsstayinghome1.png'),
+                        image: AssetImage('assets/images/Coolkidsstayinghome1.png'),
                         fit: BoxFit.fitWidth),
                   ))),
         ]));

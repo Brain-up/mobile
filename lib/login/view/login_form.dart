@@ -1,3 +1,4 @@
+import 'package:brn_mobile/Routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,8 +42,7 @@ class _UsernameInput extends StatelessWidget {
       builder: (context, state) {
         return TextField(
           key: const Key('loginForm_usernameInput_textField'),
-          onChanged: (username) =>
-              context.read<LoginBloc>().add(LoginUsernameChanged(username)),
+          onChanged: (username) => context.read<LoginBloc>().add(LoginUsernameChanged(username)),
           decoration: InputDecoration(
             labelText: 'username',
             errorText: state.username.invalid ? 'invalid username' : null,
@@ -61,8 +61,7 @@ class _PasswordInput extends StatelessWidget {
       builder: (context, state) {
         return TextField(
           key: const Key('loginForm_passwordInput_textField'),
-          onChanged: (password) =>
-              context.read<LoginBloc>().add(LoginPasswordChanged(password)),
+          onChanged: (password) => context.read<LoginBloc>().add(LoginPasswordChanged(password)),
           obscureText: true,
           decoration: InputDecoration(
             labelText: 'password',
@@ -87,7 +86,8 @@ class _LoginButton extends StatelessWidget {
                 child: const Text('Login'),
                 onPressed: state.status.isValidated
                     ? () {
-                        context.read<LoginBloc>().add(const LoginSubmitted());
+                      BlocProvider.of<LoginBloc>(context,listen: false).add(const LoginSubmitted());
+                      Navigator.pushNamed(context, RoutingConstants.homeScreen);
                       }
                     : null,
               );

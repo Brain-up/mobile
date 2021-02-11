@@ -9,8 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bloc: ^6.1.0
+  #  bloc: ^6.1.0
   flutter_bloc: ^6.1.0
+  provider: ^4.3.2+4
   font_awesome_flutter: ^8.4.0
   google_fonts: ^1.1.0
   meta: ^1.1.8
@@ -22,11 +23,21 @@ dependencies:
   chopper: ^3.0.3
   build_runner: ^1.11.1
 
+  splashscreen: ^1.3.5
+  flare_flutter: ^2.0.1
+
+  carousel_slider: ^3.0.0
+  sizer: ^1.1.8
+  cupertino_icons: ^0.1.2
+
+  integration_test: ^1.0.2+2
+
   authentication_repository:
     path: packages/authentication_repository
   user_repository:
     path: packages/user_repository
-
+  swagger:
+    path: packages/api_repository
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -40,16 +51,18 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/logo.png
+    - assets/loading.flr
     - assets/images/Ellipse76.png
     - assets/images/Coolkidsstayinghome1.png
   fonts:
-     - family: Montserrat
-       fonts:
-         - asset: assets/fonts/Montserrat-SemiBold.ttf
-         - asset: assets/fonts/Montserrat-Medium.ttf
-           style: normal
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
+        - asset: assets/fonts/Montserrat-Medium.ttf
+          style: normal
 
-     - family: OpenSans
-       fonts:
-         - asset: assets/fonts/OpenSans-Regular.ttf
-           weight: 400
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf
+          weight: 400

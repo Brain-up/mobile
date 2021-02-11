@@ -349,7 +349,7 @@ class GroupAboutWOCamonWidgetSTTLes extends StatelessWidget {
                                                                     1),
                                                             image: DecorationImage(
                                                                 image: AssetImage(
-                                                                    'assets/images/Ellipse76.png'),
+                                                                    "assets/images/Ellipse76.png"),
                                                                 fit: BoxFit
                                                                     .fitWidth),
                                                             borderRadius: BorderRadius
@@ -446,7 +446,7 @@ class GroupAboutWOCamonWidgetSTTLes extends StatelessWidget {
                                                                     1),
                                                             image: DecorationImage(
                                                                 image: AssetImage(
-                                                                    'assets/images/Ellipse76.png'),
+                                                                    "assets/images/Ellipse76.png"),
                                                                 fit: BoxFit
                                                                     .fitWidth),
                                                             borderRadius: BorderRadius
@@ -663,7 +663,7 @@ class GroupAboutWOCamonWidgetSTTLes extends StatelessWidget {
                                                                     1),
                                                             image: DecorationImage(
                                                                 image: AssetImage(
-                                                                    'assets/images/Ellipse76.png'),
+                                                                    "assets/images/Ellipse76.png"),
                                                                 fit: BoxFit
                                                                     .fitWidth),
                                                             borderRadius: BorderRadius
@@ -791,7 +791,7 @@ class GroupAboutWOCamonWidgetSTTLes extends StatelessWidget {
                                                                               184,
                                                                               1),
                                                                           image: DecorationImage(
-                                                                              image: AssetImage('images/Ellipse76.png'),
+                                                                              image: AssetImage("assets/images/Ellipse76.png"),
                                                                               fit: BoxFit.fitWidth),
                                                                           borderRadius: BorderRadius.all(Radius.elliptical(
                                                                               99,
@@ -878,7 +878,7 @@ class GroupAboutWOCamonWidgetSTTLes extends StatelessWidget {
                                                                     1),
                                                             image: DecorationImage(
                                                                 image: AssetImage(
-                                                                    'assets/images/Ellipse76.png'),
+                                                                    "assets/images/Ellipse76.png"),
                                                                 fit: BoxFit
                                                                     .fitWidth),
                                                             borderRadius: BorderRadius
@@ -950,7 +950,7 @@ class GroupAboutWOCamonWidgetSTTLes extends StatelessWidget {
                                                       240, 99, 184, 1),
                                                   image: DecorationImage(
                                                       image: AssetImage(
-                                                          'assets/images/Ellipse76.png'),
+                                                          "assets/images/Ellipse76.png"),
                                                       fit: BoxFit.fitWidth),
                                                   borderRadius:
                                                       BorderRadius.all(

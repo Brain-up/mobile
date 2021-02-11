@@ -2,11 +2,13 @@ import 'dart:async';
 
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:bloc/bloc.dart';
+import 'package:brn_mobile/generated_code/api_docs.swagger.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:user_repository/user_repository.dart';
 
 part 'authentication_event.dart';
+
 part 'authentication_state.dart';
 
 class AuthenticationBloc
@@ -14,10 +16,13 @@ class AuthenticationBloc
   AuthenticationBloc({
     @required AuthenticationRepository authenticationRepository,
     @required UserRepository userRepository,
+    @required ApiDocs client,
   })  : assert(authenticationRepository != null),
         assert(userRepository != null),
+        assert(client != null),
         _authenticationRepository = authenticationRepository,
         _userRepository = userRepository,
+        _client = client,
         super(const AuthenticationState.unknown()) {
     _authenticationStatusSubscription = _authenticationRepository.status.listen(
       (status) => add(AuthenticationStatusChanged(status)),
@@ -26,6 +31,7 @@ class AuthenticationBloc
 
   final AuthenticationRepository _authenticationRepository;
   final UserRepository _userRepository;
+  final ApiDocs _client;
   StreamSubscription<AuthenticationStatus> _authenticationStatusSubscription;
 
   @override

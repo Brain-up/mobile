@@ -14,15 +14,15 @@ class LoginPage extends StatelessWidget {
       appBar: AppBar(title: const Text('Login')),
       body: Padding(
         padding: const EdgeInsets.all(12),
-        child: BlocProvider(
-          create: (context) {
-            return LoginBloc(
-              authenticationRepository:
-                  RepositoryProvider.of<AuthenticationRepository>(context),
-            );
-          },
+        // child: BlocProvider(
+        //   create: (context) {
+        //     return LoginBloc(
+        //       authenticationRepository:
+        //           RepositoryProvider.of<AuthenticationRepository>(context),
+        //     );
+        //   },
           child: LoginForm(),
-        ),
+        // ),
       ),
     );
   }

@@ -1,5 +1,10 @@
 targets:
   $default:
+    sources:
+      - lib/**
+      - api/**
+      - swagger_examples/**
+      - $package$
     builders:
       swagger_dart_code_generator:
         options:
